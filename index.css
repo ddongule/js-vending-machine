@@ -19,8 +19,6 @@ body {
 }
 
 main {
-  width: 30rem;
-  height: 38rem;
   background-color: white;
   box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
   border-radius: 10px;
@@ -41,14 +39,14 @@ button {
   font-size: 12px;
 }
 
-button:hover {
-  box-shadow: 2px 4px 16px rgb(0 0 0 / 10%);
-  transform: scale3d(1.01, 1.01, 1.01);
-  transition: ease-in 100ms;
+.purchase-button {
+  width: 100%;
+  padding: 2px;
 }
 
-button:active {
-  transform: scale3d(0.98, 0.98, 0.98);
+.add-button {
+  padding: 0px 5px 2px;
+  font-size: 13.5px;
 }
 
 .head {
@@ -64,8 +62,8 @@ button:active {
   background: #f5f5f7;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 5px;
-  width: 24rem;
-  height: 25rem;
+  width: 30rem;
+  height: 32rem;
   padding: 2rem 1rem;
   margin-bottom: 1rem;
   display: grid;
@@ -77,7 +75,20 @@ button:active {
   width: 100%;
   height: 100%;
   display: flex;
+  padding: 10px;
+  border-radius: 4px;
   flex-direction: column;
+}
+
+
+.product:hover {
+  box-shadow: 2px 4px 16px rgb(0 0 0 / 10%);
+  transform: scale3d(1.01, 1.01, 1.01);
+  transition: ease-in 100ms;
+}
+
+.product:active {
+  transform: scale3d(0.98, 0.98, 0.98);
 }
 
 .product img {
@@ -148,5 +159,57 @@ button:active {
   }
   100% {
     transform: rotateX(-43deg);
+  }
+}
+
+.take-out-product-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 24px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: scroll;
+
+  animation: take-out-products 4s forwards;
+}
+
+.purchased-product {
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 24px;
+}
+
+.purchased-product-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.purchased-product-label {
+  margin-top: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes take-out-products {
+  0% {
+    pointer-events: all;
+    opacity: 0;
+  }
+  50% {
+    pointer-events: all;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
   }
 }
