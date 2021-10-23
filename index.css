@@ -14,16 +14,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f5f7;
+  background: black;
   user-select: none;
 }
 
 main {
-  width: 30rem;
-  height: 38rem;
-  background-color: white;
-  box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
-  border-radius: 10px;
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -34,16 +29,14 @@ main {
 
 button {
   margin-top: 0.2rem;
-  border: 1px solid rgb(182, 182, 182);
   border-radius: 4px;
-  background-color: white;
   cursor: pointer;
   font-size: 12px;
+  background: transparent;
 }
 
 button:hover {
-  box-shadow: 2px 4px 16px rgb(0 0 0 / 10%);
-  transform: scale3d(1.01, 1.01, 1.01);
+  transform: scale3d(1.05, 1.05, 1.05);
   transition: ease-in 100ms;
 }
 
@@ -51,8 +44,14 @@ button:active {
   transform: scale3d(0.98, 0.98, 0.98);
 }
 
+button span {
+  color: white;
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+
 .head {
-  width: 24rem;
+  width: 35rem;
   height: 3rem;
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
@@ -60,27 +59,57 @@ button:active {
   line-height: 2;
 }
 
+.machine-top-container {
+  perspective: 600px;
+}
+
+.machine-top {
+  width: 89.6%;
+  height: 65px;
+  background-color: #74080c;
+  border-radius: 5px 5px 0 0;
+  transform: rotateX(65deg) translateY(36px) translateX(5.8%);
+}
+
+.machine-body-container {
+  display: flex;
+  width: 32rem;
+  height: 38rem;
+  background-color: #e31a21;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 3px 19px 5px #ff727271;
+}
+
+.products-container {
+  width: 100%;
+  border-right: 1px solid #86090d;
+}
+
+.wrapper {
+  margin: 2rem 1rem;
+}
+
 .products {
-  background: #f5f5f7;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 5px;
-  width: 24rem;
-  height: 25rem;
-  padding: 2rem 1rem;
-  margin-bottom: 1rem;
+  background-color: #690003;
+  width: 23rem;
+  height: calc(100% - 6rem);
+  box-shadow: inset 0px 0px 9px 4px #00000030;
+  border-radius: 10px;
+  padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 1rem;
 }
 
-.product {
+.products .product {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
-.product img {
+.products .product img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -90,10 +119,11 @@ button:active {
 }
 
 .output {
-  background-color: rgb(49, 49, 49);
+  background-color: black;
   border-radius: 5px;
-  width: 24rem;
-  height: 3rem;
+  width: 23rem;
+  margin: 1rem;
+  height: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,51 +132,137 @@ button:active {
   cursor: pointer;
 }
 
-.door {
-  border: 1px solid rgb(211, 211, 211);
-  background-color: #f5f5f7;
+.output .door {
+  border: 1px solid #470002;
+  background-color: #690003;
+
   width: 100%;
-  height: 1.5rem;
+  height: 2rem;
 }
 
-.up {
+.output .door.up {
   border-radius: 5px 5px 0 0;
 }
 
-.output:hover .up {
+.output:hover .door.up {
   transform-origin: 0 0;
   animation: door 2s ease-in-out infinite;
 }
 
-.down {
+.output .door.down {
   border-radius: 0 0 5px 5px;
 }
 
-.output:hover .down {
+.output:hover .door.down {
   transform-origin: 0 100%;
   animation: door-down 2s ease-in-out infinite;
 }
 
+.aside .logo img {
+  width: calc(7rem - 1px);
+}
+
+.aside .buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.aside .buttons-container .buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2px;
+}
+
+.aside .buttons-container .buttons button {
+  padding: 4px 6px;
+  border: 1px solid black;
+  background: #370000;
+  color: white;
+}
+
+.aside .buttons-container .buttons .preview {
+  grid-column: 1/4;
+  grid-row: 1/1;
+  width: 100%;
+  height: 70px;
+  background: black;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border: 1px solid #ffc9c9;
+}
+
+.preview span {
+  animation: blink 1s infinite;
+  font-family: 'DOSGothic';
+}
+
+.aside .buttons-container .buttons .money-in {
+  grid-column: 1/4;
+  grid-row: 6/6;
+  margin-top: 0.5rem;
+  height: 15px;
+  border-radius: 3px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.money-in .money {
+  width: 80%;
+  height: 2px;
+  background-color: #b1b1b1;
+}
+
+.aside .buttons-container .buttons button.submit {
+  grid-column: 1/4;
+  grid-row: 5/5;
+}
+
 @keyframes door-down {
   0% {
+    transform: rotateX(0);
+  }
+  25% {
     transform: rotateX(43deg);
   }
-  50% {
+  75% {
     transform: rotateX(-43deg);
   }
   100% {
-    transform: rotateX(43deg);
+    transform: rotateX(0);
   }
 }
 
 @keyframes door {
   0% {
+    transform: rotateX(0);
+  }
+  25% {
     transform: rotateX(-43deg);
   }
-  50% {
+  75% {
     transform: rotateX(43deg);
   }
   100% {
-    transform: rotateX(-43deg);
+    transform: rotateX(0);
+  }
+}
+
+@keyframes blink {
+  0% {
+    color: #ffdf00;
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: #ffdf00;
   }
 }
