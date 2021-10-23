@@ -1,6 +1,6 @@
 * {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
   border: 0;
@@ -74,7 +74,7 @@ button span {
 .machine-body-container {
   display: flex;
   width: 32rem;
-  height: 38rem;
+  height: 43rem;
   background-color: #e31a21;
   border-radius: 0 0 5px 5px;
   box-shadow: 0px 3px 19px 5px #ff727271;
@@ -199,7 +199,7 @@ button span {
 
 .preview span {
   animation: blink 1s infinite;
-  font-family: 'DOSGothic';
+  font-family: "DOSGothic";
 }
 
 .aside .buttons-container .buttons .money-in {
@@ -264,5 +264,69 @@ button span {
   }
   100% {
     color: #ffdf00;
+  }
+}
+
+.product-label {
+  width: 100%;
+  padding: 2px;
+  word-break: keep-all;
+  color: white;
+  margin-top: 5px;
+}
+
+.product-digit-label {
+  font-size: 14px;
+}
+
+.take-out-product-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 24px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: scroll;
+
+  animation: take-out-products 4s forwards;
+}
+
+.purchased-product {
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 24px;
+}
+
+.purchased-product-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.purchased-product-label {
+  margin-top: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes take-out-products {
+  0% {
+    pointer-events: all;
+    opacity: 0;
+  }
+  50% {
+    pointer-events: all;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
   }
 }
