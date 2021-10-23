@@ -1,94 +1,146 @@
 const product = {
-  "버터": {
-    stock: 10,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/355b9e1f-f942-408d-9bee-556442eabe2e.JPG",
+  코카콜라: {
+    stock: 1,
+    image: "./images/coke.png",
   },
-  "크림치즈": {
+  닥터페퍼: {
     stock: 5,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/519f4cdd-98e7-4953-93a5-da62f44156e0.JPG",
+    image: "./images/dr-pepper.png",
   },
-  "까망베르": {
+  제로코크: {
     stock: 3,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/4fb64f92-5cb4-45d5-984c-faacfc734112.JPG",
+    image: "./images/coke-zero.png",
   },
-  "모짜렐라": {
+  미린다: {
     stock: 4,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/77f28904-5616-4e4d-acdc-9453cbe48f78.JPG",
+    image: "./images/mirinda.png",
   },
-  "토스트": {
+  맥콜: {
     stock: 9,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/512549bf-032c-4132-886f-92e8a95f74bb.jpg",
+    image: "./images/mccol.png",
   },
-  "마카롱": {
+  "7Up": {
     stock: 1,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/9c6f87c4-a4f3-4199-956a-240aeae2ceae.jpg",
+    image: "./images/7up-cherry.png",
   },
-  "딸기 타르트": {
+  레몬음료: {
     stock: 3,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/a55976f4-2c11-4807-9600-ba36d5ed2182.jpg",
+    image: "./images/sierra-mist.png",
   },
-  "초코 타르트": {
+  라임음료: {
     stock: 4,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/76d7eb59-92cc-4222-8c32-adc06903e481.jpg",
+    image: "./images/bubbly-lime.png",
   },
-  "에끌레어": {
+  망고음료: {
     stock: 2,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/22266a91-ac44-40b6-828f-6142521d8c82.jpg",
+    image: "./images/bubbly-mango.png",
   },
-  "쿠키도우": {
+  탄산수: {
     stock: 1,
-    image:
-      "https://cdn-mart.baemin.com/sellergoods/main/155aa9d8-8873-4142-b4ce-55b3a682f246.jpg",
+    image: "./images/bubbly.png",
   },
-  "오레오": {
+  루트비어: {
     stock: 1,
-    image:
-      "https://cdn-mart.baemin.com/goods/53/00_D70-RM-65711_[%EB%93%A0%EB%93%A0]%20%EB%8F%99%EC%84%9C%20%EC%98%A4%EB%A0%88%EC%98%A4_%ED%99%94%EC%9D%B4%ED%8A%B8%20100g.jpg",
+    image: "./images/root-beer.png",
   },
-  "빙수토핑": {
+  펩시콜라: {
     stock: 3,
-    image:
-      "https://cdn-mart.baemin.com/goods/47/S150-RM-58596_[%EB%93%A0%EB%93%A0]-%EC%8A%A4%EB%85%B8%EC%9A%B0%EB%B9%99-%EB%B0%B0%EB%A6%AC%EB%AF%B9%EC%8A%A4%ED%86%A0%ED%95%91-260g-12%EA%B0%9C_%EC%8D%B8%EB%84%A4%EC%9D%BC.jpg",
+    image: "./images/pepsi.png",
+  },
+  제로펩시: {
+    stock: 3,
+    image: "./images/pepsi-diet.png",
+  },
+  환타: {
+    stock: 3,
+    image: "./images/fanta-pine.png",
+  },
+  Sprite: {
+    stock: 3,
+    image: "./images/sprite.png",
   },
 };
 
+const productList = [
+  "코카콜라",
+  "닥터페퍼",
+  "제로코크",
+  "미린다",
+  "맥콜",
+  "7Up",
+  "레몬음료",
+  "라임음료",
+  "망고음료",
+  "탄산수",
+  "루트비어",
+  "펩시콜라",
+  "제로펩시",
+  "환타",
+  "Sprite",
+];
+
 const purchasedProducts = [];
+
+const $$digitButtons = document.querySelectorAll(".digit-button");
+const $$productLabels = document.querySelectorAll(".product-label");
+const $preview = document.querySelector(".preview");
+const $purchaseButton = document.querySelector(".purchase-button");
+const $output = document.querySelector(".output");
+
+function inputDigit(digit) {
+  $preview.innerText += digit;
+}
+
+$$digitButtons.forEach(($digitButton) => {
+  $digitButton.addEventListener("click", function (event) {
+    const digit = event.target.innerText;
+    inputDigit(digit);
+  });
+});
 
 function renderVendingMachine() {
   Object.keys(product).forEach((productName) => {
-    const $$products = document.querySelectorAll(".product")
-      
-    $$products.forEach(($product) => {
-      if ($product.innerText === productName && product[productName].stock === 0) {
-        console.log('hey')
-        $product.style.background = "red";
+    $$productLabels.forEach(($productLabel) => {
+      if (
+        $productLabel.innerText === productName &&
+        product[productName].stock === 0
+      ) {
+        $productLabel.style.background = "black";
+        $productLabel.style.color = "red";
+        $productLabel.innerText = "Sold";
       }
     });
   });
 }
 
 function purchase(productName) {
+  if (!product[productName]) {
+    alert("존재하지 않는 상품입니다!")
+    $preview.innerText = "";
+    return;
+  }
+
   if (product[productName].stock === 0) {
     return;
   }
 
   product[productName].stock -= 1;
   purchasedProducts.push(productName);
+  $preview.innerText = "";
+  renderVendingMachine();
 }
 
-function takeOutProducts() {
-  let productListTemplate = ``
+$purchaseButton.addEventListener("click", function () {
+  const productIndex = Number($preview.innerText) - 1;
+  purchase(productList[productIndex]);
+});
 
-  purchasedProducts.forEach(purchasedProduct => productListTemplate += `
+function takeOutProducts() {
+  let productListTemplate = ``;
+
+  purchasedProducts.forEach(
+    (purchasedProduct) =>
+      (productListTemplate += `
     <div class="purchased-product">
       <img
       class="purchased-product-image"
@@ -98,29 +150,20 @@ function takeOutProducts() {
       <h3 class="purchased-product-label">${purchasedProduct}</h3>
     </div>
   `)
-  
-  document.body.insertAdjacentHTML("beforeend", `
+  );
+
+  document.body.insertAdjacentHTML(
+    "beforeend",
+    `
     <div class="take-out-product-list">
       ${productListTemplate}
     </div>
-  `);
+  `
+  );
 }
 
-const $$purchaseButtons = document.querySelectorAll(".purchase-button")
-
-$$purchaseButtons.forEach(($purchaseButton) => {
-  $purchaseButton.addEventListener('click', function(event) {
-    const productName = event.target.innerText;
-    purchase(productName);
-    console.log(product)
-    renderVendingMachine();
-  })
+$output.addEventListener("click", function () {
+  takeOutProducts();
 });
 
-renderVendingMachine()
-
-const $output = document.querySelector('.output');
-$output.addEventListener('click', function() {
-  takeOutProducts();
-})
-
+renderVendingMachine();
