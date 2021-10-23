@@ -88,6 +88,10 @@ const $purchaseButton = document.querySelector(".purchase-button");
 const $output = document.querySelector(".output");
 
 function inputDigit(digit) {
+  if ($preview.innerText.length >= 2) {
+    return;
+  }
+
   $preview.innerText += digit;
 }
 
