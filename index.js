@@ -119,7 +119,7 @@ function renderVendingMachine() {
 
 function purchase(productName) {
   if (!product[productName]) {
-    alert("존재하지 않는 상품입니다!")
+    alert("존재하지 않는 상품입니다!");
     $preview.innerText = "";
     return;
   }
@@ -165,7 +165,7 @@ function takeOutProducts() {
   `
   );
 
-  purchasedProducts = []
+  purchasedProducts = [];
 }
 
 $output.addEventListener("click", function () {
