@@ -79,7 +79,7 @@ const productList = [
   "Sprite",
 ];
 
-const purchasedProducts = [];
+let purchasedProducts = [];
 
 const $$digitButtons = document.querySelectorAll(".digit-button");
 const $$productLabels = document.querySelectorAll(".product-label");
@@ -164,6 +164,8 @@ function takeOutProducts() {
     </div>
   `
   );
+
+  purchasedProducts = []
 }
 
 $output.addEventListener("click", function () {
