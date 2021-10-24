@@ -1,4 +1,4 @@
-<img src='./assets/images/readme_preview.png'>
+<img src='./images/readme_preview.png'>
 
 # 💫 Javascript Vending Machine Practice!
 
